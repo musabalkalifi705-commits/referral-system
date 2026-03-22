@@ -1,0 +1,151 @@
+/* styles/admin.module.css */
+
+.shell {
+  display: flex; min-height: 100vh;
+  background: #080a0d;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  color: #d8d8d8;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px; flex-shrink: 0;
+  background: rgba(255,255,255,.03);
+  border-left: 1px solid rgba(255,255,255,.06);
+  padding: 28px 14px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 1.1rem; font-weight: 700; color: #c4f542;
+  padding: 0 8px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  margin-bottom: 8px;
+}
+.nav { display: flex; flex-direction: column; gap: 4px; }
+.navBtn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-radius: 9px;
+  background: none; border: none; color: rgba(255,255,255,.4);
+  font-family: inherit; font-size: .88rem; font-weight: 500;
+  cursor: pointer; width: 100%; text-align: right;
+  transition: all .15s;
+}
+.navBtn:hover { background: rgba(255,255,255,.05); color: #fff; }
+.active { background: rgba(196,245,66,.1) !important; color: #c4f542 !important; }
+
+/* ── Main ── */
+.main { flex: 1; padding: 32px; overflow: auto; }
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 24px;
+}
+.title { font-size: 1.4rem; font-weight: 700; color: #fff; }
+.filterRow { display: flex; gap: 8px; flex-wrap: wrap; }
+.filterBtn {
+  padding: 7px 16px; border-radius: 8px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.5); font-size: .8rem;
+  cursor: pointer; font-family: inherit; transition: all .15s;
+}
+.filterBtn:hover { background: rgba(255,255,255,.09); color: #fff; }
+
+/* Alert */
+.alert { padding: 13px 16px; border-radius: 9px; font-size: .87rem; margin-bottom: 18px; }
+.ok  { background: rgba(196,245,66,.08); border: 1px solid rgba(196,245,66,.25); color: #c4f542; }
+.err { background: rgba(220,38,38,.08);  border: 1px solid rgba(220,38,38,.25);  color: #f87171; }
+
+/* Table */
+.tableWrap {
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; overflow: hidden;
+}
+.table { width: 100%; border-collapse: collapse; }
+.table th {
+  padding: 13px 18px; text-align: right;
+  font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.35);
+  letter-spacing: .06em; text-transform: uppercase;
+  background: rgba(255,255,255,.02);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.table td {
+  padding: 15px 18px; font-size: .88rem;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.table tr:last-child td { border-bottom: none; }
+.table tr:hover td { background: rgba(255,255,255,.02); }
+.amount { color: #c4f542; font-weight: 600; }
+
+.badge { padding: 4px 10px; border-radius: 99px; font-size: .73rem; font-weight: 600; }
+.pending  { background: rgba(251,191,36,.15); color: #fbbf24; }
+.approved { background: rgba(196,245,66,.15); color: #c4f542; }
+.paid     { background: rgba(99,102,241,.2);  color: #a5b4fc; }
+.rejected { background: rgba(239,68,68,.15);  color: #f87171; }
+
+.actions { display: flex; gap: 8px; }
+.btnApprove, .btnPay, .btnDel {
+  padding: 6px 14px; border-radius: 7px;
+  font-size: .78rem; font-weight: 600; font-family: inherit;
+  cursor: pointer; border: none; transition: opacity .15s;
+}
+.btnApprove { background: rgba(196,245,66,.15); color: #c4f542; }
+.btnApprove:hover { background: rgba(196,245,66,.25); }
+.btnPay     { background: rgba(99,102,241,.2);  color: #a5b4fc; }
+.btnPay:hover { background: rgba(99,102,241,.35); }
+.btnDel     { background: rgba(239,68,68,.1);   color: #f87171; }
+.btnDel:hover { background: rgba(239,68,68,.2); }
+
+.empty { padding: 60px; text-align: center; color: rgba(255,255,255,.25); font-size: .9rem; }
+.loader {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.08); border-top-color: #c4f542;
+  margin: 48px auto; animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Upload ── */
+.uploadBox { display: flex; flex-direction: column; gap: 24px; max-width: 560px; }
+.uploadArea {
+  border: 2px dashed rgba(255,255,255,.12); border-radius: 16px;
+  padding: 56px 32px; text-align: center; cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.uploadArea:hover { border-color: #c4f542; background: rgba(196,245,66,.03); }
+.uploadIcon { font-size: 2.5rem; display: block; margin-bottom: 12px; color: rgba(255,255,255,.3); }
+.uploadArea p { color: rgba(255,255,255,.5); margin-bottom: 6px; }
+.uploadArea small { color: rgba(255,255,255,.25); font-size: .8rem; }
+
+.uploadResult { display: flex; gap: 16px; flex-wrap: wrap; }
+.statCard {
+  flex: 1; min-width: 100px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.statCard span { display: block; font-size: 2rem; font-weight: 700; color: #c4f542; }
+.statCard label { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 4px; display: block; }
+
+/* ── Rules ── */
+.rulesWrap { display: flex; flex-direction: column; gap: 28px; max-width: 640px; }
+.addRuleForm {
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; padding: 24px;
+}
+.addRuleForm h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 16px; }
+.formRow { display: flex; gap: 10px; flex-wrap: wrap; }
+.input {
+  flex: 1; min-width: 120px; padding: 11px 14px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+  border-radius: 9px; color: #fff; font-family: inherit; font-size: .88rem; outline: none;
+  transition: border-color .2s;
+}
+.input:focus { border-color: #c4f542; }
+.input::placeholder { color: rgba(255,255,255,.2); }
+.btnAdd {
+  padding: 11px 20px; background: #c4f542; color: #080a0d;
+  font-weight: 700; font-size: .88rem; font-family: inherit;
+  border: none; border-radius: 9px; cursor: pointer;
+  transition: background .2s;
+}
+.btnAdd:hover { background: #d6ff5a; }
